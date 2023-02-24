@@ -1,3 +1,4 @@
+//second part of tge dispatcher
 public class InterceptorManager {
     InterceptorChain InterceptorChain;
  
@@ -12,4 +13,8 @@ public class InterceptorManager {
     public void filterRequest(String request){
        InterceptorChain.execute(request);
     }
+
+    public void filterUserRequest(User user){
+      InterceptorChain.execute2(user);
+   }
  }
