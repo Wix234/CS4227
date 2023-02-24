@@ -1,10 +1,8 @@
-public class ForecastDisplay implements Observer, DisplayElement {
+ public class ForecastDisplay implements Observer, DisplayElement {
     private float currentPressure = 29.92f;
     private float lastPressure;
-    private WeatherData weatherData;
 
     public ForecastDisplay(WeatherData weatherData) {
-        this.weatherData = weatherData;
         weatherData.registerObserver(this);
     }
 
@@ -17,11 +15,11 @@ public class ForecastDisplay implements Observer, DisplayElement {
     public void display() {
         System.out.print("Forecast: ");
         if (currentPressure > lastPressure) {
-            System.out.println("Improving weather on the way!");
+            System.out.println("Improving weather on the way!\n");
         } else if (currentPressure == lastPressure) {
-            System.out.println("More of the same");
+            System.out.println("More of the same\n");
         } else if (currentPressure < lastPressure) {
-            System.out.println("Watch out for cooler, rainy weather");
+            System.out.println("Watch out for cooler, rainy weather\n");
         }
     }
 }

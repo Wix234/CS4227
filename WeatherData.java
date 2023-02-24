@@ -1,13 +1,14 @@
 import java.util.ArrayList;
 
 public class WeatherData implements SetMeasurements, GetMeasurements, Subject {
-    private ArrayList observers;
+    private ArrayList<Observer> observers;
     private float temperature;
     private float humidity;
     private float pressure;
+    private InterceptorManager interManager;
 
     public WeatherData() {
-        observers = new ArrayList();
+        observers = new ArrayList<Observer>();
     }
 
     public void registerObserver(Observer o) {
@@ -50,4 +51,12 @@ public class WeatherData implements SetMeasurements, GetMeasurements, Subject {
     public float getPressure() {
         return pressure;
     }
+
+    public void setFilterManager(InterceptorManager interManager){
+        this.interManager = interManager;
+     }
+  
+     public void sendRequest(String request){
+        interManager.filterRequest(request);
+     }
 }
