@@ -1,3 +1,4 @@
+//part of the dispatcher
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,15 @@ public class InterceptorChain {
       target.execute(request);
    }
 
+   public void execute2(User user){
+      for (Interceptor inter : inters) {
+         inter.execute2(user);
+      }
+      target.execute2(user);
+   }
+
    public void setTarget(Target target){
       this.target = target;
    }
 }
+
