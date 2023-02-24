@@ -56,6 +56,10 @@ public class WeatherData implements SetMeasurements, GetMeasurements, Subject {
         this.interManager = interManager;
      }
   
+     public void sendUserRequest(User user){
+        interManager.filterUserRequest(user);
+     }
+
      public void sendRequest(String request){
         interManager.filterRequest(request);
      }
