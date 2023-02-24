@@ -1,11 +1,12 @@
 public class WeatherStation {
     public static void main(String[] args) {
 
+        User p1 = new User(12345, "Pandas");
+        User p2 = new User(2323232, "Pandas");
+
         InterceptorManager interManager = new InterceptorManager(new Target());
         interManager.setFilter(new AuthorisationInterceptor());
         interManager.setFilter(new LoggingInterceptor());
-
-        
 
         WeatherData weatherData = new WeatherData();
         new CurrentConditionsDisplay(weatherData);
@@ -13,6 +14,10 @@ public class WeatherStation {
         new ForecastDisplay(weatherData);
 
         weatherData.setFilterManager(interManager);
+        weatherData.sendUserRequest(p1);
+        weatherData.sendUserRequest(p2);
+        
+        
         weatherData.sendRequest(" logging in\n");
 
         weatherData.setMeasurements(80, 65, 30.4f);
