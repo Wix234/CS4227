@@ -1,4 +1,4 @@
-//second part of tge dispatcher
+//first part of the dispatcher
 public class InterceptorManager {
     InterceptorChain InterceptorChain;
  
@@ -6,7 +6,7 @@ public class InterceptorManager {
        InterceptorChain = new InterceptorChain();
        InterceptorChain.setTarget(target);
     }
-    public void setFilter(Interceptor interceptor){
+    public void addInterceptor(Interceptor interceptor){
        InterceptorChain.addFilter(interceptor);
     }
  
@@ -14,7 +14,7 @@ public class InterceptorManager {
        InterceptorChain.execute(request);
     }
 
-    public void filterUserRequest(User user){
-      InterceptorChain.execute2(user);
+    public boolean filterUserRequest(User user){
+      return InterceptorChain.execute2(user);
    }
  }
