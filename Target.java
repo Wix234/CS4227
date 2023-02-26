@@ -3,7 +3,14 @@ public class Target {
        System.out.println("Executing request: " + " " + request);
     }
 
-    public void execute2(User user){
-      System.out.println("User logged in successfully:" + " " + user.getID());
+    public boolean execute2(User user, int count){
+      if (count == 2){
+         System.out.println("User " + user.getID() + " logged in successfully");
+         System.out.println("User " + user.getID() + " may now edit the weather conditions" + "\n");
+         return true;
+      }else{
+         System.out.println("User " + user.getID() + " did not log in successfully" + "\n");
+         return false;
+      }
    }
  }
