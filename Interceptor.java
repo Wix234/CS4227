@@ -2,5 +2,5 @@
 public interface Interceptor {
     public void execute(String request);
 
-    public void execute2(User user);
+    public boolean execute2(User user);
 }
